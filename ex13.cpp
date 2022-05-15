@@ -2,25 +2,26 @@
 using namespace std;
 
 int main() {
-  string S;
-  cin >> S;
+	int N;
+  	cin >> N;
 
+	vector<int> vec(N);
 	int i = 0;
-	int sum = 1;
-	while(i < S.size())
+	int sum = 0;
+	while(i < N)
 	{
-		if (S.at(i) == '1')
-			i++;
-		else if (S.at(i) == '+')
-		{
-			sum++;
-			i++;
-		}
-		else if (S.at(i) == '-')
-		{
-			sum--;
-			i++;
-		}
+		cin >> vec.at(i);
+		sum += vec.at(i);
+		i++;
 	}
-	cout << sum << endl;
+	int average = sum / N;
+	i = 0;
+	while (i < N)
+	{
+		if (vec.at(i) >= average)
+			cout << vec.at(i) - average << endl;
+		else
+			cout << average - vec.at(i) << endl;
+		i++;
+	}
 }
